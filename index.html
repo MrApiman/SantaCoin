@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SANTACOIN – Crypto’s Gift of Generosity</title>
+  <meta name="description" content="A deflationary BEP-20 token on BNB Smart Chain that rewards holders and spreads Christmas joy.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Tailwind-like mini-reset */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,Arial,sans-serif;background:#fef7f0;color:#111;line-height:1.5}
+    img{max-width:100%;display:block}
+    .btn{display:inline-block;padding:.75rem 1.5rem;border-radius:9999px;font-weight:700;cursor:pointer;transition:.2s}
+    .btn-primary{background:#ffca28;color:#000}
+    .btn-primary:hover{background:#f59e0b}
+    .section{padding:4rem 1rem}
+    .container{max-width:1024px;margin:auto}
+    .grid-2{display:grid;gap:2rem;grid-template-columns:1fr}
+    @media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+    .text-center{text-align:center}
+    .text-red{color:#c62828}
+    .bg-red{background:#c62828}
+    .bg-gold{background:#ffca28}
+    .text-white{color:#fff}
+    .mb-2{margin-bottom:.5rem}
+    .mb-4{margin-bottom:1rem}
+    .mb-8{margin-bottom:2rem}
+    /* snow */
+    .snow{position:fixed;top:-20px;pointer-events:none;z-index:999;color:#fff;font-size:1rem;animation:fall linear infinite}
+    @keyframes fall{to{transform:translateY(110vh)}}
+    /* pie chart canvas fix */
+    canvas{max-width:300px;margin:auto}
+  </style>
+</head>
+<body>
+
+<!-- Snow -->
+<script>
+  for(let i=0;i<40;i++){
+    const s=document.createElement('div');
+    s.className='snow';
+    s.textContent='❄';
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=5+Math.random()*10+'s';
+    s.style.opacity=Math.random();
+    document.body.appendChild(s);
+  }
+</script>
+
+<!-- Hero -->
+<header class="bg-red text-white text-center py-20">
+  <div class="container">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">SANTACOIN</h1>
+    <p class="text-xl mb-6 max-w-2xl mx-auto">Crypto’s Gift of Generosity – daily Elf-drops in November & 100 × 100 USD Secret-Santa on 24 Dec.</p>
+    <a href="#waitlist" class="btn btn-primary">Join the Nice List</a>
+  </div>
+</header>
+
+<!-- About -->
+<section class="section">
+  <div class="container grid-2 items-center">
+    <div>
+      <h2 class="text-3xl font-bold mb-4 text-red">What is SANTACOIN?</h2>
+      <p class="mb-4">A deflationary BEP-20 token on BNB Smart Chain. 8 % of every transaction is redistributed to holders; 3 % is burned forever. Throughout November, elves drop random gifts. On Christmas Eve Santa gifts 100 × 100 USD.</p>
+    </div>
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI0MCIgZmlsbD0iI2M2MjgyOCIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjAwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTI1NiA5NmMtODguNCAwLTE2MCA3MS42LTE2MCAxNjBzNzEuNiAxNjAgMTYwIDE2MCAxNjAtNzEuNiAxNjAtMTYwUzM0NC40IDk2IDI1NiA5NnptMCAyODBjLTY2LjMgMC0xMjAtNTMuNy0xMjAtMTIwczUzLjctMTIwIDEyMC0xMjAgMTIwIDUzLjcgMTIwIDEyMC01My43IDEyMC0xMjAgMTIweiIgZmlsbD0iI2M2MjgyOCIvPjxlbGxpcHNlIGN4PSIyNTYiIGN5PSIyNTYiIHJ4PSI2MCIgcnk9IjYwIiBmaWxsPSJub25lIiBzdHJva2U9IiNjNjI4MjgiIHN0cm9rZS13aWR0aD0iMTIiLz48cGF0aCBkPSJNMjU2IDk2bC0yNC00OGg0OGwtMjQgNDh6IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMjMyIiBjeT0iNDgiIHI9IjE2IiBmaWxsPSIjZmZjMTA3Ii8+PGNpcmNsZSBjeD0iMjgwIiBjeT0iNDgiIHI9IjE2IiBmaWxsPSIjZmZjMTA3Ii8+PHBhdGggZD0iTTI1NiA0OGwtMTIgMjRoMjRsLTEyLTI0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="SantaCoin logo">
+  </div>
+</section>
+
+<!-- Tokenomics -->
+<section class="section bg-gray-100">
+  <div class="container text-center">
+    <h2 class="text-3xl font-bold mb-8 text-red">Tokenomics</h2>
+    <table class="mx-auto mb-4">
+      <tr><th>Allocation</th><th>%</th></tr>
+      <tr><td>Initial Burn</td><td>50 %</td></tr>
+      <tr><td>Liquidity & Presale</td><td>45 %</td></tr>
+      <tr><td>Team (Vested)</td><td>3 %</td></tr>
+      <tr><td>Airdrops & Gifts</td><td>2 %</td></tr>
+    </table>
+    <canvas id="pie" width="300" height="300"></canvas>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section class="section">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-8 text-red">Roadmap to Christmas</h2>
+    <div class="space-y-4">
+      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">1</span><div><strong>Foundations</strong> (Aug–Sep)</div></div>
+      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">2</span><div><strong>Pre-Launch</strong> (Oct)</div></div>
+      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">3</span><div><strong>Elf-Drops</strong> (Nov)</div></div>
+      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">4</span><div><strong>Secret Santa</strong> (24 Dec)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Wait-list -->
+<section class="section bg-gray-100">
+  <div class="container text-center">
+    <h2 class="text-3xl font-bold mb-4 text-red">Join the Nice List</h2>
+    <form action="https://gmail.us17.list-manage.com/subscribe/post?u=YOUR_ID&amp;id=YOUR_LIST_ID" method="post" target="_blank">
+      <input type="email" name="EMAIL" required placeholder="your@email.com" class="mb-2 px-4 py-2 border rounded w-full max-w-sm">
+      <button type="submit" class="btn btn-primary">Get Notified</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white text-center py-4">
+  &copy; 2025 SANTACOIN – Built by a Secret Santa
+</footer>
+
+<!-- Pie chart -->
+<script>
+  const ctx=document.getElementById('pie');
+  new (window.Chart || Chart)(ctx,{
+    type:'pie',
+    data:{
+      labels:['Burn','Liquidity','Team','Airdrops'],
+      datasets:[{data:[50,45,3,2],backgroundColor:['#c62828','#2e7d32','#ffca28','#0288d1']}]
+    },
+    options:{plugins:{legend:{display:false}}}
+  });
+</script>
+
+<!-- GSAP fade-up (tiny) -->
+<script>
+  (function(){
+    const els=document.querySelectorAll('section');
+    els.forEach((el,i)=>el.style.opacity=0);
+    window.addEventListener('load',()=>{
+      els.forEach((el,i)=>{el.style.transition='opacity 1s';el.style.opacity=1});
+    });
+  })();
+</script>
+</body>
+</html>
