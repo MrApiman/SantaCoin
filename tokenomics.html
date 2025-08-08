@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tokenomics — SANTACOIN</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+/* Tokenomics page styles */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#021225,#05121a);color:#fff;min-height:100vh}
+:root{--red:#c62828;--gold:#ffca28;--green:#2e7d32;--glass:rgba(255,255,255,0.04);--max-width:1100px}
+.topbar{position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(0,0,0,.12);z-index:200}
+.container{max-width:var(--max-width);margin:0 auto;padding:6.5rem 1rem 3rem}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1.2rem;border-radius:14px;border:1px solid var(--glass);box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.center{text-align:center}
+.grid{display:grid;gap:1rem}
+@media(min-width:900px){.grid{grid-template-columns:1fr 420px}}
+.gift-play{width:280px;height:280px;margin:auto;display:grid;place-items:center;border-radius:12px;cursor:pointer;position:relative}
+.gift-visual{width:180px;height:180px;border-radius:12px;background:linear-gradient(180deg,var(--red),#9b1f1f);border:6px solid var(--gold);display:grid;place-items:center;font-size:2.2rem}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:.8rem}
+.legend b{display:inline-block;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,.04)}
+.note{color:rgba(255,255,255,.78)}
+.footer{padding:2rem 1rem;text-align:center;color:rgba(255,255,255,.7);margin-top:1.4rem}
+</style>
+</head>
+<body>
+<header class="topbar container" style="display:flex;align-items:center;justify-content:space-between">
+  <div><a href="index.html" style="color:#fff;text-decoration:none;font-weight:700">SANTACOIN</a></div>
+  <nav>
+    <a href="index.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">Home</a>
+    <a href="about.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">About</a>
+    <a href="roadmap.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">Roadmap</a>
+    <a href="nice-list.html" style="background:linear-gradient(90deg,var(--gold),#f7b500);padding:.4rem .6rem;border-radius:8px;color:#000;text-decoration:none">Nice List</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="grid">
+    <section class="card">
+      <h2 style="color:var(--gold);text-align:center;margin-bottom:.6rem">Tokenomics</h2>
+      <p class="note center">Well-balanced, transparent distribution with community-first incentives. Click the gift to spin a fun tokenomics surprise.</p>
+
+      <div style="margin-top:1rem;text-align:center">
+        <canvas id="pie" width="300" height="300" aria-label="Tokenomics pie chart"></canvas>
+        <div class="legend" aria-hidden>
+          <div><b>50% Burn</b></div><div><b>45% Liquidity</b></div><div><b>3% Team</b></div><div><b>2% Airdrops</b></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem">
+        <h4>Mechanics</h4>
+        <ul style="line-height:1.6" class="note">
+          <li>8% reflections to holders</li>
+          <li>3% burn per tx to reduce supply</li>
+          <li>2% reserved for community events and Elf-drops</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="card center">
+      <div class="gift-play" id="spinGift" tabindex="0" role="button" aria-label="Spin the gift">
+        <div class="gift-visual" id="giftVisual">🎁</div>
+      </div>
+      <div style="margin-top:.8rem" class="note">Click the gift to spin — reveals a festive fact or micro-prize.</div>
+    </aside>
+  </div>
+
+  <section style="margin-top:1rem" class="card">
+    <h4 style="color:var(--gold)">Distribution Details</h4>
+    <pre style="background:rgba(0,0,0,.2);padding:1rem;border-radius:8px;color:rgba(255,255,255,.9)">Total Supply: 1,000,000,000
+- Burn: 50% (500,000,000)
+- Liquidity & Presale: 45% (450,000,000)
+- Team (vested): 3% (30,000,000)
+- Airdrops & Gifts: 2% (20,000,000)</pre>
+  </section>
+</main>
+
+<footer class="footer">
+  © 2025 SANTACOIN — Tokenomics & Gifts
+</footer>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx=document.getElementById('pie').getContext('2d');
+new Chart(ctx,{type:'pie',data:{labels:['Burn','Liquidity','Team','Airdrops'],datasets:[{data:[50,45,3,2],backgroundColor:['#c62828','#2e7d32','#ffca28','#0288d1']} ]},options:{plugins:{legend:{display:false}}}});
+
+/* gift spin */
+(function(){
+  const gift=document.getElementById('spinGift'), gv=document.getElementById('giftVisual');
+  const prizes=["Candy Cane! 🍬","Secret-Santa Entry 🎟️","+1 Social Share Chance 🤝","Holiday Fact: Santa loves cocoa ☕","Elf-drop Eligible"];
+  function spin(){
+    gv.style.transform='rotate(720deg) scale(.95)'; gv.style.transition='transform .9s cubic-bezier(.2,.9,.2,1)';
+    setTimeout(()=>{ const p=prizes[Math.floor(Math.random()*prizes.length)]; gv.textContent=p; gv.style.transform='rotate(0deg) scale(1)'; },900);
+  }
+  gift.addEventListener('click',spin);
+  gift.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' ') spin() });
+})();
+</script>
+</body>
+</html>

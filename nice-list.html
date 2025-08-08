@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Nice List — SANTACOIN</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#081b2b,#04121a);color:#fff;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:6.5rem 1rem 3rem}
+.topbar{position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(0,0,0,.12);z-index:200}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1.2rem;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+.form-row{display:grid;gap:.6rem}
+@media(min-width:700px){.form-row{grid-template-columns:1fr 220px}}
+input,button,select,textarea{font-family:inherit;font-size:1rem}
+input[type="email"]{padding:.8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+button{padding:.75rem 1rem;border-radius:10px;border:none;background:linear-gradient(90deg,#ffca28,#f7b500);font-weight:800;cursor:pointer}
+.note{color:rgba(255,255,255,.8);line-height:1.6}
+.footer{padding:2rem 1rem;text-align:center;color:rgba(255,255,255,.7);margin-top:1.2rem}
+</style>
+</head>
+<body>
+<header class="topbar container" style="display:flex;align-items:center;justify-content:space-between">
+  <div><a href="index.html" style="color:#fff;text-decoration:none;font-weight:700">SANTACOIN</a></div>
+  <nav>
+    <a href="index.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">Home</a>
+    <a href="about.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">About</a>
+    <a href="tokenomics.html" style="margin-right:.6rem;color:rgba(255,255,255,.9)">Tokenomics</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="card">
+    <h2 style="color:#ffca28">Join the Nice List</h2>
+    <p class="note">Sign up to be eligible for the Secret-Santa drawing on Dec 24. We only use your email for notifications and raffle verification.</p>
+
+    <form id="niceForm" class="form-row" action="https://gmail.us17.list-manage.com/subscribe/post?u=YOUR_ID&amp;id=YOUR_LIST_ID" method="post" target="_blank">
+      <input type="email" name="EMAIL" id="email" placeholder="you@example.com" required>
+      <button type="submit">Get Notified</button>
+      <div style="grid-column:1/-1;margin-top:.8rem;color:rgba(255,255,255,.75)" class="note">
+        By joining you confirm you are following SANTACOIN on our socials (not required but recommended) and you accept the event terms.
+      </div>
+    </form>
+  </div>
+
+  <section style="margin-top:1rem" class="card">
+    <h4 style="color:#ffca28">Terms (Short)</h4>
+    <ol style="line-height:1.6;color:rgba(255,255,255,.85)">
+      <li>Winners must verify identity for prize delivery.</li>
+      <li>Organizers reserve the right to disqualify fraudulent accounts.</li>
+      <li>Taxes and fees (if any) are the responsibility of the winner.</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="footer">
+  © 2025 SANTACOIN — Nice List
+</footer>
+
+</body>
+</html>

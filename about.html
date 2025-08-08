@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>About — SANTACOIN</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+/* Inline styles similar to index but focused for About page */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071427,#041825);color:#fff;min-height:100vh}
+:root{--red:#c62828;--gold:#ffca28;--glass:rgba(255,255,255,0.04);--max-width:1100px}
+.topbar{position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:rgba(0,0,0,.15);z-index:200}
+.container{max-width:var(--max-width);margin:0 auto;padding:6.5rem 1rem 3rem}
+.nav a{color:rgba(255,255,255,.9);margin-left:.6rem;text-decoration:none;padding:.5rem .7rem;border-radius:8px}
+.hero{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:900px){.hero{grid-template-columns:1fr 380px}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1.1rem;border-radius:14px;border:1px solid var(--glass)}
+.elves-row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.note{color:rgba(255,255,255,.75);line-height:1.6}
+.small{font-size:.9rem;color:rgba(255,255,255,.8)}
+.candy{height:6px;background:repeating-linear-gradient(90deg,#fff 0 6px, #ffebee 0 12px);border-radius:4px;margin:1rem 0}
+.footer{padding:2rem 1rem;text-align:center;color:rgba(255,255,255,.7)}
+.elf{position:relative;width:84px;height:84px}
+</style>
+</head>
+<body>
+<header class="topbar container" style="display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <a href="index.html" style="text-decoration:none;color:#fff"><strong>SANTACOIN</strong></a>
+    <nav class="nav" aria-label="Nav">
+      <a href="index.html">Home</a>
+      <a href="tokenomics.html">Tokenomics</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="nice-list.html" style="background:linear-gradient(90deg,var(--gold),#f7b500);padding:.4rem .6rem;border-radius:8px;color:#000">Nice List</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="hero">
+    <section class="card">
+      <h2 style="color:var(--gold);margin-bottom:.6rem">What is SANTACOIN?</h2>
+      <p class="note">SANTACOIN is a community-first BEP-20 token designed to bring seasonal joy to the crypto space. It uses deflationary mechanics: a portion of each transaction is burned, another portion is reflected to holders. In November we run daily "Elf-drops" — micro-airdrops — and on Dec 24 we host a Secret-Santa giving away 100 × $100 to the Nice List.</p>
+      <div class="candy" aria-hidden></div>
+      <h3 style="margin-top:.8rem">Core Principles</h3>
+      <ul style="margin-top:.4rem;line-height:1.6" class="small">
+        <li><strong>Generosity:</strong> Events that reward participation and sharing.</li>
+        <li><strong>Transparency:</strong> Auditable contracts and clear tokenomics.</li>
+        <li><strong>Community:</strong> Built by holders, for holders.</li>
+      </ul>
+    </section>
+
+    <aside style="display:grid;gap:.8rem">
+      <div class="card" style="text-align:center">
+        <h4 style="margin-bottom:.4rem">Team</h4>
+        <p class="small">A small, focused crew of devs and marketing elves. Team tokens are vested and locked to align incentives.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom:.4rem">Security Notes</h4>
+        <p class="small">Smart contract audits are planned. Never share your seed phrase; we will never DM asking for private keys.</p>
+      </div>
+      <div class="card elves-row" aria-hidden>
+        <!-- multiple small SVG elves inline -->
+        <div class="elf" title="Elfy A">
+          <svg viewBox="0 0 64 64" width="84" height="84" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30" fill="#c62828"/><text x="50%" y="54%" font-family="Verdana" font-weight="800" font-size="20" text-anchor="middle" fill="#ffca28">E</text></svg>
+        </div>
+        <div class="elf" title="Elfy B">
+          <svg viewBox="0 0 64 64" width="84" height="84" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#2e7d32"/><text x="50%" y="54%" font-family="Verdana" font-weight="800" font-size="20" text-anchor="middle" fill="#fff">E2</text></svg>
+        </div>
+        <div class="elf" title="Elfy C">
+          <svg viewBox="0 0 64 64" width="84" height="84" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#ffca28"/><text x="50%" y="54%" font-family="Verdana" font-weight="800" font-size="20" text-anchor="middle" fill="#b71c1c">SC</text></svg>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section style="margin-top:1.2rem" class="card">
+    <h3 style="color:var(--gold)">Roadmap snapshot</h3>
+    <p class="small">Phase 1: Launch & Branding — Phase 2: Whitelist & Partners — Phase 3: Elf-drops & Community events — Phase 4: Secret-Santa</p>
+  </section>
+</main>
+
+<footer class="footer">
+  &copy; 2025 SANTACOIN — Built with seasonal love
+</footer>
+</body>
+</html>

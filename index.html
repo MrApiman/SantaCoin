@@ -1,138 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SANTACOIN – Crypto’s Gift of Generosity</title>
-  <meta name="description" content="A deflationary BEP-20 token on BNB Smart Chain that rewards holders and spreads Christmas joy.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    /* Tailwind-like mini-reset */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,Arial,sans-serif;background:#fef7f0;color:#111;line-height:1.5}
-    img{max-width:100%;display:block}
-    .btn{display:inline-block;padding:.75rem 1.5rem;border-radius:9999px;font-weight:700;cursor:pointer;transition:.2s}
-    .btn-primary{background:#ffca28;color:#000}
-    .btn-primary:hover{background:#f59e0b}
-    .section{padding:4rem 1rem}
-    .container{max-width:1024px;margin:auto}
-    .grid-2{display:grid;gap:2rem;grid-template-columns:1fr}
-    @media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}}
-    .text-center{text-align:center}
-    .text-red{color:#c62828}
-    .bg-red{background:#c62828}
-    .bg-gold{background:#ffca28}
-    .text-white{color:#fff}
-    .mb-2{margin-bottom:.5rem}
-    .mb-4{margin-bottom:1rem}
-    .mb-8{margin-bottom:2rem}
-    /* snow */
-    .snow{position:fixed;top:-20px;pointer-events:none;z-index:999;color:#fff;font-size:1rem;animation:fall linear infinite}
-    @keyframes fall{to{transform:translateY(110vh)}}
-    /* pie chart canvas fix */
-    canvas{max-width:300px;margin:auto}
-  </style>
+<meta charset="utf-8" />
+<title>SANTACOIN — Home</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="SANTACOIN — Crypto's Gift of Generosity — Home" />
+<style>
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#021226 0%, #071b2b 40%, #071b1b 100%);
+  color:#fff; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ---------- THEME COLORS ---------- */
+:root{
+  --red:#c62828;
+  --gold:#ffca28;
+  --green:#2e7d32;
+  --ice:#e6f7ff;
+  --glass:rgba(255,255,255,0.05);
+  --glass-2:rgba(255,255,255,0.08);
+  --max-width:1100px;
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 1rem;backdrop-filter:blur(6px);
+  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom:1px solid rgba(255,255,255,0.03);z-index:200;
+}
+.brand{display:flex;align-items:center;gap:.8rem}
+.logo{
+  width:48px;height:48px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(180deg,var(--red),#9b1f1f);box-shadow:0 6px 18px rgba(0,0,0,.6);
+  border:3px solid var(--gold);
+}
+.brand h1{font-size:1.05rem;letter-spacing:.6px}
+.nav{display:flex;gap:.5rem;align-items:center}
+.nav a{padding:.55rem .9rem;border-radius:999px;text-decoration:none;color:var(--ice);font-weight:600;
+  transition:all .18s; background:transparent;border:1px solid transparent}
+.nav a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.cta{background:linear-gradient(90deg,var(--gold),#f7b500);color:#000;padding:.6rem 1rem;border-radius:999px;font-weight:800}
+
+/* ---------- HERO ---------- */
+.hero{min-height:86vh;display:grid;place-items:center;padding:6.5rem 1rem 3rem}
+.container{max-width:var(--max-width);margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1fr 420px}}
+
+.headline{font-size:clamp(1.6rem,5vw,3rem);line-height:1.02;font-weight:900}
+.lead{color:rgba(255,255,255,0.9);margin-top:.6rem;font-size:1rem;max-width:56ch}
+
+/* ---------- GIFT CARD ---------- */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid var(--glass-2);padding:1.25rem;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,.6)
+}
+.gift{
+  width:320px;height:320px;margin:auto;display:grid;place-items:center;position:relative;
+  transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.9,.2,1);
+}
+.gift:hover{transform:rotateY(15deg) rotateX(6deg) translateY(-6px)}
+.gift-box{width:180px;height:180px;background:linear-gradient(180deg,var(--red),#9b1f1f);
+  border:6px solid var(--gold);border-radius:14px;display:grid;place-items:center;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.ribbon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:900;color:var(--gold);font-size:2rem}
+.sparkle{position:absolute;inset:0;pointer-events:none;z-index:10}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:4.5rem 1rem}
+.split{display:grid;gap:1.2rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1fr 420px}}
+
+/* ---------- SNOW & ELVES ---------- */
+.snow{position:fixed;top:-20px;pointer-events:none;z-index:50;color:#fff;font-size:.85rem;animation:fall linear infinite;opacity:.9}
+@keyframes fall{to{transform:translateY(110vh)}}
+
+/* Elf styles */
+.elf{
+  position:fixed;width:120px;height:120px;z-index:210;bottom:10vh;right:2rem;transition:transform .6s ease,opacity .4s;
+  transform:translateY(50px) scale(.95);opacity:0
+}
+.elf.show{transform:translateY(0) scale(1);opacity:1}
+.elf img{width:100%;height:100%;display:block}
+.elf-bubble{position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:.5rem .7rem;border-radius:10px;font-weight:700;white-space:nowrap}
+
+/* ---------- FOOTER ---------- */
+.footer{padding:2rem 1rem;text-align:center;color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,0.03)}
+
+/* ---------- TOAST / NOTIFICATION ---------- */
+.toast{
+  position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:linear-gradient(90deg,var(--green),#1e7a3a);
+  color:#fff;padding:.8rem 1.1rem;border-radius:12px;box-shadow:0 12px 30px rgba(2,6,23,.6);display:none;z-index:300
+}
+</style>
 </head>
 <body>
 
-<!-- Snow -->
-<script>
-  for(let i=0;i<40;i++){
-    const s=document.createElement('div');
-    s.className='snow';
-    s.textContent='❄';
-    s.style.left=Math.random()*100+'%';
-    s.style.animationDuration=5+Math.random()*10+'s';
-    s.style.opacity=Math.random();
-    document.body.appendChild(s);
-  }
-</script>
-
-<!-- Hero -->
-<header class="bg-red text-white text-center py-20">
-  <div class="container">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">SANTACOIN</h1>
-    <p class="text-xl mb-6 max-w-2xl mx-auto">Crypto’s Gift of Generosity – daily Elf-drops in November & 100 × 100 USD Secret-Santa on 24 Dec.</p>
-    <a href="#waitlist" class="btn btn-primary">Join the Nice List</a>
+<!-- Top bar -->
+<header class="topbar">
+  <div class="brand container">
+    <div class="logo" aria-hidden>
+      <!-- inline SVG Santa coin -->
+      <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#c62828" stroke="#ffca28" stroke-width="3"/>
+        <text x="50%" y="54%" text-anchor="middle" fill="#ffca28" font-weight="800" font-size="18" font-family="Verdana">SC</text>
+      </svg>
+    </div>
+    <div>
+      <h1 style="font-size:1rem;margin:0">SANTACOIN</h1>
+      <div style="font-size:.75rem;color:rgba(255,255,255,0.7)">Crypto's Gift of Generosity</div>
+    </div>
   </div>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="nice-list.html" class="cta">Nice List</a>
+  </nav>
 </header>
 
-<!-- About -->
-<section class="section">
-  <div class="container grid-2 items-center">
-    <div>
-      <h2 class="text-3xl font-bold mb-4 text-red">What is SANTACOIN?</h2>
-      <p class="mb-4">A deflationary BEP-20 token on BNB Smart Chain. 8 % of every transaction is redistributed to holders; 3 % is burned forever. Throughout November, elves drop random gifts. On Christmas Eve Santa gifts 100 × 100 USD.</p>
-    </div>
-    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI0MCIgZmlsbD0iI2M2MjgyOCIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjAwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTI1NiA5NmMtODguNCAwLTE2MCA3MS42LTE2MCAxNjBzNzEuNiAxNjAgMTYwIDE2MCAxNjAtNzEuNiAxNjAtMTYwUzM0NC40IDk2IDI1NiA5NnptMCAyODBjLTY2LjMgMC0xMjAtNTMuNy0xMjAtMTIwczUzLjctMTIwIDEyMC0xMjAgMTIwIDUzLjcgMTIwIDEyMC01My43IDEyMC0xMjAgMTIweiIgZmlsbD0iI2M2MjgyOCIvPjxlbGxpcHNlIGN4PSIyNTYiIGN5PSIyNTYiIHJ4PSI2MCIgcnk9IjYwIiBmaWxsPSJub25lIiBzdHJva2U9IiNjNjI4MjgiIHN0cm9rZS13aWR0aD0iMTIiLz48cGF0aCBkPSJNMjU2IDk2bC0yNC00OGg0OGwtMjQgNDh6IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMjMyIiBjeT0iNDgiIHI9IjE2IiBmaWxsPSIjZmZjMTA3Ii8+PGNpcmNsZSBjeD0iMjgwIiBjeT0iNDgiIHI9IjE2IiBmaWxsPSIjZmZjMTA3Ii8+PHBhdGggZD0iTTI1NiA0OGwtMTIgMjRoMjRsLTEyLTI0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="SantaCoin logo">
-  </div>
-</section>
-
-<!-- Tokenomics -->
-<section class="section bg-gray-100">
-  <div class="container text-center">
-    <h2 class="text-3xl font-bold mb-8 text-red">Tokenomics</h2>
-    <table class="mx-auto mb-4">
-      <tr><th>Allocation</th><th>%</th></tr>
-      <tr><td>Initial Burn</td><td>50 %</td></tr>
-      <tr><td>Liquidity & Presale</td><td>45 %</td></tr>
-      <tr><td>Team (Vested)</td><td>3 %</td></tr>
-      <tr><td>Airdrops & Gifts</td><td>2 %</td></tr>
-    </table>
-    <canvas id="pie" width="300" height="300"></canvas>
-  </div>
-</section>
-
-<!-- Roadmap -->
-<section class="section">
-  <div class="container">
-    <h2 class="text-3xl font-bold text-center mb-8 text-red">Roadmap to Christmas</h2>
-    <div class="space-y-4">
-      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">1</span><div><strong>Foundations</strong> (Aug–Sep)</div></div>
-      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">2</span><div><strong>Pre-Launch</strong> (Oct)</div></div>
-      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">3</span><div><strong>Elf-Drops</strong> (Nov)</div></div>
-      <div class="flex items-start"><span class="bg-red text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 font-bold">4</span><div><strong>Secret Santa</strong> (24 Dec)</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Wait-list -->
-<section class="section bg-gray-100">
-  <div class="container text-center">
-    <h2 class="text-3xl font-bold mb-4 text-red">Join the Nice List</h2>
-    <form action="https://gmail.us17.list-manage.com/subscribe/post?u=YOUR_ID&amp;id=YOUR_LIST_ID" method="post" target="_blank">
-      <input type="email" name="EMAIL" required placeholder="your@email.com" class="mb-2 px-4 py-2 border rounded w-full max-w-sm">
-      <button type="submit" class="btn btn-primary">Get Notified</button>
-    </form>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-800 text-white text-center py-4">
-  &copy; 2025 SANTACOIN – Built by a Secret Santa
-</footer>
-
-<!-- Pie chart -->
+<!-- Snow elements -->
 <script>
-  const ctx=document.getElementById('pie');
-  new (window.Chart || Chart)(ctx,{
-    type:'pie',
-    data:{
-      labels:['Burn','Liquidity','Team','Airdrops'],
-      datasets:[{data:[50,45,3,2],backgroundColor:['#c62828','#2e7d32','#ffca28','#0288d1']}]
-    },
-    options:{plugins:{legend:{display:false}}}
-  });
+for(let i=0;i<60;i++){
+  const s=document.createElement('div');s.className='snow';s.textContent='❄';
+  s.style.left=Math.random()*100+'%';s.style.animationDuration=6+Math.random()*10+'s';
+  s.style.fontSize=(8+Math.random()*18)+'px';s.style.opacity=.3+Math.random()*.9;
+  document.body.appendChild(s);
+}
 </script>
 
-<!-- GSAP fade-up (tiny) -->
+<!-- Elf popups (random) -->
+<div class="elf" id="elfHome" aria-hidden>
+  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g><rect rx='20' width='200' height='200' fill='transparent'/><ellipse cx='100' cy='120' rx='60' ry='60' fill='%23b3e5fc'/><circle cx='70' cy='70' r='30' fill='%23fff' /><circle cx='130' cy='70' r='30' fill='%23fff' /><path d='M60 80 C80 100,120 100,140 80' fill='%23ffeb3b' stroke='%23f57f17' stroke-width='6' stroke-linecap='round'/></g></svg>">
+  <div class="elf-bubble" id="elfBubbleHome">Ho-Ho-HODL! 🎁</div>
+</div>
+
+<main class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="card">
+        <div class="headline">SANTACOIN — Crypto’s Gift of Generosity</div>
+        <p class="lead">A deflationary BEP-20 token on BNB Smart Chain. Daily elf-drops in November and a big Secret-Santa on 24 Dec — 100 prizes of $100 each.</p>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a href="nice-list.html" class="cta">Join the Nice List</a>
+          <a href="tokenomics.html" class="card" style="padding:.55rem .9rem;border-radius:999px">Open Tokenomics Gift</a>
+          <a href="roadmap.html" class="card" style="padding:.55rem .9rem;border-radius:999px">Roadmap to Christmas</a>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;display:flex;gap:1rem;align-items:center">
+        <div class="card" style="flex:1">
+          <strong>Countdown to Secret-Santa</strong>
+          <div id="countdown" style="margin-top:.6rem;font-family:monospace;font-weight:700">Loading…</div>
+        </div>
+        <div class="card" style="width:160px;text-align:center">
+          <small>Elf-drops</small>
+          <div style="font-size:1.5rem;font-weight:800;margin-top:.4rem">Daily in Nov</div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="gift card">
+        <div class="gift-box" id="homeGift" role="button" tabindex="0" aria-label="Click to open a surprise">
+          <div class="ribbon">🎁</div>
+        </div>
+        <div style="text-align:center;margin-top:.8rem;color:rgba(255,255,255,.8)">Click the gift for a seasonal surprise</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<section class="section container split">
+  <div class="card">
+    <h3 style="margin-bottom:.6rem;color:var(--gold)">Why SANTACOIN?</h3>
+    <p style="line-height:1.5">SANTACOIN is built with community generosity at its heart: deflationary mechanics, reflections to holders, and on-chain holiday events that reward long-term believers and spread cheer.</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-bottom:.6rem;color:var(--gold)">Security</h3>
+    <p style="line-height:1.5">We prioritize audits, verifiable contracts, and transparency. Always perform your own research before participating.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  &copy; 2025 SANTACOIN — Made with cocoa and code 🎄
+</footer>
+
+<div class="toast" id="toast">You've been added to the Nice List 🎅</div>
+
 <script>
-  (function(){
-    const els=document.querySelectorAll('section');
-    els.forEach((el,i)=>el.style.opacity=0);
-    window.addEventListener('load',()=>{
-      els.forEach((el,i)=>{el.style.transition='opacity 1s';el.style.opacity=1});
-    });
-  })();
+/* countdown to Dec 24 2025 00:00 UTC */
+(function(){
+  const cd=document.getElementById('countdown'); const tgt=new Date("2025-12-24T00:00:00Z");
+  function tick(){ const now=new Date(); const diff=tgt-now; if(diff<=0){cd.textContent='Secret-Santa is Live! 🎅';return}
+    const d=Math.floor(diff/864e5); const h=Math.floor(diff/36e5)%24; const m=Math.floor(diff/6e4)%60; const s=Math.floor(diff/1e3)%60;
+    cd.textContent=`${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* elf random popups */
+(function(){
+  const elf=document.getElementById('elfHome'); const bubble=document.getElementById('elfBubbleHome');
+  const phrases=["Ho-Ho-HODL!","Have you been nice? 😉","Elf-drop incoming!","Claim your ribbon!"];
+  function show(){ bubble.textContent=phrases[Math.floor(Math.random()*phrases.length)]; elf.classList.add('show'); setTimeout(()=>elf.classList.remove('show'),4200)}
+  setTimeout(show,2000); setInterval(show,14000 + Math.random()*8000);
+})();
+
+/* gift click */
+document.getElementById('homeGift').addEventListener('click',()=>{
+  const choices=["You found a candy cane! 🍬","+0.1% reflection boost (imaginary)","Secret-Santa raffle ticket 🎟️","Spread cheer: retweet for +1 chance!"];
+  const pick=choices[Math.floor(Math.random()*choices.length)];
+  const t=document.getElementById('toast'); t.textContent=pick; t.style.display='block'; setTimeout(()=>t.style.display='none',3200);
+});
 </script>
 </body>
 </html>
